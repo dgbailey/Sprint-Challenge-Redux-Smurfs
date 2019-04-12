@@ -8,7 +8,9 @@ import ItemList from '../components/SmurfList';
  `How do I ensure that my component links the state to props?`
  */
 class App extends Component {
+  
   render() {
+    console.log('app rendering');
     return (
       <div className="App">
         <ItemList/>

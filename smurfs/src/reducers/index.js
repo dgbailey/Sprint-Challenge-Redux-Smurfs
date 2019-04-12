@@ -6,6 +6,9 @@ import {FETCH_DATA_START,
   FETCH_DATA_SUCCESS,
   FETCH_DATA_FAILURE} from '../actions';
  
+import {ADD_DATA_START,
+  ADD_DATA_SUCCESS,
+  ADD_DATA_FAILURE} from '../actions';
  
 const initialState = {
    smurfs: [],
@@ -41,6 +44,30 @@ const initialState = {
       ...state,
       fetchingSmurfs:false,
       error:action.payload.data.error
+    }
+
+    case ADD_DATA_START:
+    return{
+      ...state,
+      addingSmurf:true
+      
+    }
+
+    case ADD_DATA_SUCCESS:
+    return{
+      ...state,
+      addingSmurf:false,
+      
+      smurfs:[...state.smurfs,action.payload]
+     
+      
+    }
+
+    case ADD_DATA_FAILURE:
+    return{
+      ...state,
+      addingSmurf:false,
+      error:action.payload
     }
 
     default:
