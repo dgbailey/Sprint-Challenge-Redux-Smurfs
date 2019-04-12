@@ -9,7 +9,12 @@ import {FETCH_DATA_START,
 import {ADD_DATA_START,
   ADD_DATA_SUCCESS,
   ADD_DATA_FAILURE} from '../actions';
- 
+
+
+import {DEL_DATA_START,
+  DEL_DATA_SUCCESS,
+  DEL_DATA_FAILURE} from '../actions';
+  
 const initialState = {
    smurfs: [],
    fetchingSmurfs: false,
@@ -67,6 +72,30 @@ const initialState = {
     return{
       ...state,
       addingSmurf:false,
+      error:action.payload
+    }
+
+    case DEL_DATA_START:
+    return{
+      ...state,
+      deletingSmurf:true
+      
+    }
+
+    case DEL_DATA_SUCCESS:
+    return{
+      ...state,
+      deletingSmurf:false,
+      
+      smurfs:action.payload
+     
+      
+    }
+
+    case DEL_DATA_FAILURE:
+    return{
+      ...state,
+      deletingSmurf:false,
       error:action.payload
     }
 
