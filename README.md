@@ -23,9 +23,14 @@ In this challenge, you are to build the Smurfs village once again, only this tim
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+1) Actions are objects returned from a function.  They are dispatched to our reducer after events occur in our app. They provide the reducer with Instructions for which state tree to render. Reducer is the knowledge center for all possible states of our app. It listens for actions and distillls them into a single state tree Store is our single source of truth for managing data in our App because it is the source from which all Application state flows to our components.  It follows certain rules of mutability that ensure it is highly likely to become corrupted.
+2) 
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
-- [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+Component state lives within our React components.  It is good to use this for UI changes based on events in the component.  Application state lives in our redux store and is avaible to any component in our app. It is valuable for defining all possible states of a component and making those states available easily.
 
+
+- [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+3) Redux thunk is middleware that intercepts actions before they reach our reducer.  Redux thunk allows us to execute functions (API calls etc) before the appropriately structured actions are dispatched to the reducer.
 ## Project Set Up
 
 Follow these steps to set up your project:
